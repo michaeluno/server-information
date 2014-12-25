@@ -1,7 +1,7 @@
 ﻿=== Server Information ===
 Contributors:       Michael Uno, miunosoft
 Donate link:        http://en.michaeluno.jp/donate
-Tags:               system, system information, admin tool, tool, server, server information, email, report, bug report,
+Tags:               system, system information, admin tool, tool, server, server information, email, report, bug report, report form, form, email form
 Requires at least:  3.3
 Tested up to:       4.1.0
 Stable tag:         1.0.0
