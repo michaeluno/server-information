@@ -8,7 +8,7 @@ Stable tag:         0.0.1
 License:            GPLv2 or later
 License URI:        http://www.gnu.org/licenses/gpl-2.0.html
 
-Lets you send server information as an email to a specified address.
+Adds an email report form in the admin area to send server information.
 
 == Description ==
 
@@ -39,6 +39,9 @@ Emails do not work on some servers with certain configurations. Please report an
 1. ***Report Page***
 
 == Changelog ==
+
+= 1.0.0 - 20144/12/25 =
+- Hosted on WordPress.org.
 
 = 0.0.1 - 2014/12/25 =
 - Released initially.

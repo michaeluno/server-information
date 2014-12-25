@@ -2,7 +2,7 @@
 
 ### Welcome to our GitHub Repository
 
-Server Information is an open source WordPress plugin that lets you submit server information to a specified email address.
+Server Information is an open source WordPress plugin that adds an email report form in the admin area to send server information.
 
 ## Screenshots ##
 Coming soon..

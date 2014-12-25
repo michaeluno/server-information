@@ -2,10 +2,10 @@
 /*
 	Plugin Name:    Server Information
 	Plugin URI:     http://en.michaeluno.jp/admin-page-framework
-	Description:    Allows the user send their server information to the desired email address.
+	Description:    Adds an email report form in the admin area to send server information.
 	Author:         Michael Uno
 	Author URI:     http://michaeluno.jp
-	Version:        0.0.1
+	Version:        1.0.0
 	Requirements:   PHP 5.2.4 or above, WordPress 3.3 or above. Admin Page Framework 3.0.6 or above
 */
 
@@ -13,12 +13,14 @@
  * The base class of the registry class which provides basic plugin information.
  * 
  * The minifier script and the inclusion script also refer to the constants. 
+ * 
+ * @since       0.0.1
  */
 class ServerInformation_Registry_Base {
 
-	const Version        = '0.0.1';    // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
+	const Version        = '1.0.0';    // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
 	const Name           = 'Server Information';
-	const Description    = 'Allows the user send their server information to the desired email address.';
+	const Description    = 'Adds an email report form to send server information in the admin area.';
 	const URI            = 'http://en.michaeluno.jp/';
 	const Author         = 'miunosoft (Michael Uno)';
 	const AuthorURI      = 'http://en.michaeluno.jp/';
@@ -29,6 +31,7 @@ class ServerInformation_Registry_Base {
 }
 /**
  * Provides plugin information.
+ * @since       0.0.1
  */
 final class ServerInformation_Registry extends ServerInformation_Registry_Base {
 	        
@@ -41,7 +44,7 @@ final class ServerInformation_Registry extends ServerInformation_Registry_Base {
 	// const AdminPage_ = '...';
 	// const AdminPage_Root            = 'ServerInformation_AdminPage';    // the root menu page slug
 	// const AdminPage_Settings        = 'si_settings';    // the root menu page slug
-	const AdminPage_Report        = 'si_report';    // the root menu page slug
+	const AdminPage_Report          = 'si_report';    // the root menu page slug
     
     // const PostType_ = '';
 	// const PostType_ImageGroup       = 'cfi_image_group';        // up to 20 characters
@@ -68,6 +71,7 @@ final class ServerInformation_Registry extends ServerInformation_Registry_Base {
 	 * Returns the URL with the given relative path to the plugin path.
 	 * 
 	 * Example:  ServerInformation_Registry::getPluginURL( 'asset/css/meta_box.css' );
+     * @since       0.0.1
 	 */
 	public static function getPluginURL( $sRelativePath='' ) {
 		return plugins_url( $sRelativePath, self::$sFilePath );
@@ -75,6 +79,8 @@ final class ServerInformation_Registry extends ServerInformation_Registry_Base {
     
     /**
      * Returns the information of this class.
+     * 
+     * @since       0.0.1
      */
     static public function getInfo() {
         $_oReflection = new ReflectionClass( __CLASS__ );
