@@ -8,10 +8,9 @@ Stable tag:         0.0.1
 License:            GPLv2 or later
 License URI:        http://www.gnu.org/licenses/gpl-2.0.html
 
-Displays server information and let the user send it as an email to a specified address.
+Lets you send server information as an email to a specified address.
 
 == Description ==
-re a theme developer, you can easily customize the template for the tweet outputs. Just copy the existing template and modify the copied files and rename the template name. Then place the copied folder into the theme folder. And there you go! Your own template will be listed in the plugin’s setting page. This way, when the plugin updates, you won’t loose your modifications.
 
 <h4>Features</h4>
 * **Server Information** - it displays WordPress, PHP, and MySQL information.

@@ -2,15 +2,17 @@
 
 ### Welcome to our GitHub Repository
 
-Server Information is an open source WordPress plugin that lets you set external featured images, images from a post, randomizes images etc.
+Server Information is an open source WordPress plugin that lets you submit server information to a specified email address.
 
 ## Screenshots ##
 Coming soon..
 
-## Installation ##
+## Download ##
 
 - The latest development version can be found [here](https://github.com/michaeluno/server-information/branches). 
 - The latest stable version can be downloaded [here](http://downloads.wordpress.org/plugin/server-information.latest-stable.zip).
+
+## Installation ##
 
 1. Go to `Dashboard` -> `Plugins` -> `Add New` and press the `Upload Plugin` button then upload the zip file. If you need to do it manually, upload **`server-information.php`** and other files compressed in the zip folder to the **`/wp-content/plugins/server-information`** directory. 
 2. Activate the plugin through the `Plugins` menu in WordPress.
