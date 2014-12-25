@@ -9,7 +9,12 @@
  * @since        0.0.1
  */
 class ServerInformation_AdminPage extends ServerInformation_AdminPageFramework {
-
+    
+    /**
+     * Sets up admin pages.
+     * 
+     * @since       0.0.1
+     */
     public function setUp() {
 
         // Register custom field types
@@ -30,7 +35,8 @@ class ServerInformation_AdminPage extends ServerInformation_AdminPageFramework {
         $this->setPageHeadingTabsVisibility( false ); // disables the page heading tabs by passing false.
         $this->setInPageTabTag( 'h2' ); // sets the tag used for in-page tabs     
         $this->setPageTitleVisibility( false ); // disable the page title of a specific page.
-        
+        $this->setPluginSettingsLinkLabel( __( 'Report', 'server-information' ) ); // pass an empty string.
+         
         // Define the Report page.
         new ServerInformation_AdminPage_Report( ServerInformation_Registry::AdminPage_Report );
         

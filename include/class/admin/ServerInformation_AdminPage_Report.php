@@ -11,7 +11,11 @@
 class ServerInformation_AdminPage_Report {
 
     public $sPageSlug = '';
-
+    
+    /**
+     * Sets up hooks and properties.
+     * @since       0.0.1
+     */
     public function __construct( $sPageSlug ) {
 
         $this->sPageSlug = $sPageSlug;
@@ -19,7 +23,12 @@ class ServerInformation_AdminPage_Report {
         add_action( "load_" . $this->sPageSlug, array( $this, '_replyToLoadPage' ) );
      
     }
-
+    
+    /**
+     * Called when the page loads.
+     * 
+     * @since       0.0.1
+     */
     public function _replyToLoadPage( $oAdminPage ) {
 
         $oAdminPage->addInPageTabs( 
