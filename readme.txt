@@ -21,6 +21,7 @@ Adds an email report form in the admin area to send server information.
 
 == Installation ==
 
+= Install =
 1. Go to `Dashboard` -> `Plugins` -> `Add New` and press the `Upload Plugin` button then upload the zip file. If you need to do it manually, upload **`server-information.php`** and other files compressed in the zip folder to the **`/wp-content/plugins/server-information`** directory. 
 2. Activate the plugin through the `Plugins` menu in WordPress.
 
