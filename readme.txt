@@ -44,6 +44,11 @@ Emails may not work on some servers with certain configurations. Please report a
 
 == Changelog ==
 
+= 1.1.0 =
+- Added options to select information types to send.
+- Added more information for MySQL.
+- Updated the Admin Page Framework library.
+
 = 1.0.0 - 2014/12/25 =
 - Hosted on WordPress.org.
 

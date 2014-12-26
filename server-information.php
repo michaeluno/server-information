@@ -5,7 +5,7 @@
 	Description:    Adds an email report form in the admin area to send server information.
 	Author:         Michael Uno
 	Author URI:     http://michaeluno.jp
-	Version:        1.0.0
+	Version:        1.1.0b01
 	Requirements:   PHP 5.2.4 or above, WordPress 3.3 or above. Admin Page Framework 3.0.6 or above
 */
 
@@ -18,7 +18,7 @@
  */
 class ServerInformation_Registry_Base {
 
-	const Version        = '1.0.0';    // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
+	const Version        = '1.1.0b01';    // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
 	const Name           = 'Server Information';
 	const Description    = 'Adds an email report form to send server information in the admin area.';
 	const URI            = 'http://en.michaeluno.jp/';

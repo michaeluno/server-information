@@ -46,7 +46,8 @@ class ServerInformation_AdminPage_Report_Report {
      */
     public function replyToLoadTab( $oFactory ) {
         
-        $_oCurrentUser = wp_get_current_user();
+        $_oCurrentUser  = wp_get_current_user();
+        $_bIsConfirming = isset( $_GET['confirmation'] ) && 'email' === $_GET['confirmation'];
         
         $oFactory->addSettingSections(    
             $this->sPageSlug, // the target page slug
@@ -55,8 +56,10 @@ class ServerInformation_AdminPage_Report_Report {
                 'tab_slug'          => $this->sTabSlug,
                 'title'             => __( 'Report', 'server-information' ),
             )
-        );        
-        
+        );       
+if ( $_bIsConfirming ) {
+    ServerInformation_AdminPageFramework_Debug::log( $oFactory->getSavedOptions() );
+}
         $oFactory->addSettingFields(
             'report',
             array( 
@@ -102,7 +105,7 @@ class ServerInformation_AdminPage_Report_Report {
                 'field_id'          => 'expected_result',
                 'title'             => __( 'Expected Behavior', 'server-information' ),
                 'type'              => 'textarea',
-                'description'       => __( 'Tell how the framework should work.', 'server-information' ),
+                'description'       => __( 'Tell how your program should work.', 'server-information' ),
                 'attributes'        => array(
                     'required'  => 'required',
                 ),
@@ -111,7 +114,7 @@ class ServerInformation_AdminPage_Report_Report {
                 'field_id'          => 'actual_result',
                 'title'             => __( 'Actual Behavior', 'server-information' ),
                 'type'              => 'textarea',
-                'description'      => __( 'Describe the behavior of the framework.', 'server-information' ),
+                'description'      => __( 'Describe the behavior of your program.', 'server-information' ),
                 'attributes'        => array(
                     'required'  => 'required',
                 ),                
@@ -129,6 +132,152 @@ class ServerInformation_AdminPage_Report_Report {
                 ),                                
             ),               
             array(
+                'field_id'      => 'select_iofo',
+                'type'          => 'revealer',
+                'title'         => __( 'Select Information Types', 'server-information' ),
+                'select_type'   => 'checkbox',
+                'label'         => array(
+                    '.wordpress_info'       => 'WordPress',
+                    '.php_info'             => 'PHP',
+                    '.mysql_info'           => 'MySQL',
+                    '.web_server_info'      => __( 'Web Server', 'server-information' ),
+                    '.server_infor_info'    => ServerInformation_Registry::Name,
+                    '.framework_info'       => 'Admin Page Framework',
+                ),
+                'default'       => array(
+                    '.wordpress_info'       => true,
+                    '.php_info'             => true,
+                    '.mysql_info'           => true,
+                    '.web_server_info'      => true,
+                    '.server_infor_info'    => true,
+                    '.framework_info'       => true,
+                ),
+                'attributes'    => array(
+                    'disabled'  => $_bIsConfirming
+                        ? 'disabled' 
+                        : null,
+                ),
+            ),
+            array(
+                'field_id'      => 'wordpress_info',
+                'type'          => 'system',     
+                'title'         => 'WordPress',
+                'data'          => array(
+                    __( 'Admin Page Framework', 'server-information' ) => '',
+                    __( 'Server', 'server-information' ) => '',
+                    __( 'PHP', 'server-information' ) => '',
+                    __( 'MySQL', 'server-information' ) => '',
+                ),
+                'attributes'    => array( 
+                    'rows'      =>  10, 
+                ),
+                'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.wordpress_info' )
+                    ? true
+                    : false,
+                'class'         => array( 'fieldrow' => 'wordpress_info', ),                
+                'hidden'        => true,
+            ),        
+            array(
+                'field_id'      => 'php_info',
+                'type'          => 'system',     
+                'title'         => 'PHP',
+                'data'          => array(
+                    __( 'WordPress', 'server-information' ) => '',
+                    __( 'Admin Page Framework', 'server-information' ) => '',
+                    __( 'Server', 'server-information' ) => '',
+                    __( 'MySQL', 'server-information' ) => '',
+                    'PHPInfo'   => ServerInformation_PHP::get(),
+                ),
+                'attributes'    => array( 
+                    'rows'      =>  10, 
+                ),
+                'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.php_info' )
+                    ? true
+                    : false,
+                'class'         => array( 'fieldrow' => 'php_info', ),                
+                'hidden'        => true,
+            ),      
+            array(
+                'field_id'      => 'mysql_info',
+                'type'          => 'system',     
+                'title'         => 'MySQL',
+                'data'          => array(
+                    __( 'WordPress', 'server-information' ) => '',
+                    __( 'Admin Page Framework', 'server-information' ) => '',
+                    __( 'Server', 'server-information' ) => '',
+                    __( 'PHP', 'server-information' ) => '',
+                    __( 'Variables', 'server-information' ) => ServerInformation_MySQL::get(),
+                    
+                ),
+                'attributes'    => array( 
+                    'rows'      =>  10, 
+                ),
+                'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.mysql_info' )
+                    ? true
+                    : false,
+                'class'         => array( 'fieldrow' => 'mysql_info', ),                
+                'hidden'        => true,
+            ),  
+            array(
+                'field_id'      => 'web_server_info',
+                'type'          => 'system',     
+                'title'         => __( 'Web Server', 'server-information' ),
+                'data'          => array(
+                    __( 'WordPress', 'server-information' ) => '',
+                    __( 'Admin Page Framework', 'server-information' ) => '',
+                    __( 'PHP', 'server-information' ) => '',
+                    __( 'MySQL', 'server-information' ) => '',
+                ),
+                'attributes'    => array( 
+                    'rows'      =>  10, 
+                ),
+                'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.web_server_info' )
+                    ? true
+                    : false,                
+                'class'         => array( 'fieldrow' => 'web_server_info', ),                
+                'hidden'        => true,
+            ),            
+            array(
+                'field_id'      => 'server_infor_info',
+                'type'          => 'system',     
+                'title'         => __( 'Plugin', 'server-information' ),
+                'data'          => array(
+                    __( 'WordPress', 'server-information' ) => '',
+                    __( 'Admin Page Framework', 'server-information' ) => '',
+                    __( 'Server', 'server-information' ) => '',
+                    __( 'PHP', 'server-information' ) => '',
+                    __( 'MySQL', 'server-information' ) => '',
+                    __( 'Plugin', 'server-information' ) . ': ' . ServerInformation_Registry::Name => ServerInformation_Registry::getInfo(),
+                ),
+                'attributes'    => array( 
+                    'rows'      =>  10, 
+                ),
+                'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.server_infor_info' )
+                    ? true
+                    : false,                
+                'class'         => array( 'fieldrow' => 'server_infor_info', ),                
+                'hidden'        => true,
+            ),       
+            array(
+                'field_id'      => 'framework_info',
+                'type'          => 'system',     
+                'title'         => __( 'Admin Page Framework', 'server-information' ),
+                'data'          => array(
+                    __( 'WordPress', 'server-information' ) => '',
+                    __( 'Server', 'server-information' ) => '',
+                    __( 'PHP', 'server-information' ) => '',
+                    __( 'MySQL', 'server-information' ) => '',
+                ),
+                'attributes'    => array( 
+                    'rows'      =>  10, 
+                ),
+                'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.framework_info' )
+                    ? true
+                    : false,                
+                'class'         => array( 'fieldrow' => 'framework_info', ),                
+                'hidden'        => true,
+            ),                    
+/*             array(
                 'field_id'      => 'system_information',
                 'type'          => 'system',     
                 'title'         => __( 'System Information', 'server-information' ),
@@ -143,23 +292,23 @@ class ServerInformation_AdminPage_Report_Report {
                     'rows'          =>  10,
                 ),
                 // 'hidden'        => true,
-            ),           
+            ),    */        
             array( 
                 'field_id'          => 'has_confirmed',
                 'type'              => 'hidden',
                 'hidden'            => true,
-                'value'             => isset( $_GET['confirmation'] ),
+                'value'             => $_bIsConfirming,
             ),               
             array( 
                 'field_id'          => 'allow_sending_system_information',
                 'title'             => __( 'Confirmation', 'server-information' ),
                 'type'              => 'checkbox',
-                'hidden'            => ! isset( $_GET['confirmation'] ),
+                'hidden'            => ! $_bIsConfirming,
                 'value'             => false,
                 'label'             => __( 'I agree that the site information such as PHP version and WordPress version and the plugin options will be sent to the developer along with the message to help trouble-shoot the problem.', 'server-information' ),
                 'attributes'        => array(
-                    'required'  => isset( $_GET['confirmation'] ) ? 
-                        'required'
+                    'required'  => $_bIsConfirming
+                        ? 'required'
                         : null,
                 ),                
             ),          
@@ -167,14 +316,14 @@ class ServerInformation_AdminPage_Report_Report {
                 'field_id'          => 'send',
                 'type'              => 'submit',
                 'label_min_width'   => 0,
-                'value'             => isset( $_GET['confirmation'] )
+                'value'             => $_bIsConfirming
                     ? __( 'Send', 'server-information' )
                     : __( 'Preview', 'server-information' ),
                 'attributes'        => array(
                     'field' => array(
                         'style' => 'float:right; clear:none; display: inline;',
                     ),
-                    'class' => isset( $_GET['confirmation'] )
+                    'class' => $_bIsConfirming
                         ? null
                         : 'button-secondary',
                 ),    
@@ -219,54 +368,21 @@ class ServerInformation_AdminPage_Report_Report {
             return $aOldInput;
             
         }     
-     
+        
+        // Drop unchecked information.               
+        foreach( ( array ) $aInput['report']['select_iofo'] as $_sInfoType => $_bChecked ) {
+            if ( $_bChecked ) { continue; }
+            $_sInfoType = ltrim( $_sInfoType, '.' );
+ServerInformation_AdminPageFramework_Debug::log( 'removing: ' . $_sInfoType );
+            unset( $aInput['report'][ $_sInfoType ] );
+        }
+ServerInformation_AdminPageFramework_Debug::log( $aInput );        
+        
         // Otherwise, process the data.
         return $aInput;        
         
     }   
     
-    /**
-     * Returns the PHP info as an array.
-     */
-    private function _getPHPInfo( $return=true ){
-        
-        /* Andale!  Andale!  Yee-Hah! */
-        ob_start();
-        phpinfo(-1);
 
-        $pi = preg_replace(
-        array('#^.*<body>(.*)</body>.*$#ms', '#<h2>PHP License</h2>.*$#ms',
-        '#<h1>Configuration</h1>#',  "#\r?\n#", "#</(h1|h2|h3|tr)>#", '# +<#',
-        "#[ \t]+#", '#&nbsp;#', '#  +#', '# class=".*?"#', '%&#039;%',
-          '#<tr>(?:.*?)" src="(?:.*?)=(.*?)" alt="PHP Logo" /></a>'
-          .'<h1>PHP Version (.*?)</h1>(?:\n+?)</td></tr>#',
-          '#<h1><a href="(?:.*?)\?=(.*?)">PHP Credits</a></h1>#',
-          '#<tr>(?:.*?)" src="(?:.*?)=(.*?)"(?:.*?)Zend Engine (.*?),(?:.*?)</tr>#',
-          "# +#", '#<tr>#', '#</tr>#'),
-        array('$1', '', '', '', '</$1>' . "\n", '<', ' ', ' ', ' ', '', ' ',
-          '<h2>PHP Configuration</h2>'."\n".'<tr><td>PHP Version</td><td>$2</td></tr>'.
-          "\n".'<tr><td>PHP Egg</td><td>$1</td></tr>',
-          '<tr><td>PHP Credits Egg</td><td>$1</td></tr>',
-          '<tr><td>Zend Engine</td><td>$2</td></tr>' . "\n" .
-          '<tr><td>Zend Egg</td><td>$1</td></tr>', ' ', '%S%', '%E%'),
-        ob_get_clean());
-
-        $sections = explode('<h2>', strip_tags($pi, '<h2><th><td>'));
-        unset($sections[0]);
-
-        $pi = array();
-        foreach($sections as $section){
-           $n = substr($section, 0, strpos($section, '</h2>'));
-           preg_match_all(
-           '#%S%(?:<td>(.*?)</td>)?(?:<td>(.*?)</td>)?(?:<td>(.*?)</td>)?%E%#',
-             $section, $askapache, PREG_SET_ORDER);
-           foreach($askapache as $m)
-               $pi[$n][$m[1]]=(!isset($m[3])||$m[2]==$m[3])?$m[2]:array_slice($m,2);
-        }
-
-        return ($return === false) ? print_r($pi) : $pi;
-        
-    }
- 
 }
 
