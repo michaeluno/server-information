@@ -8,7 +8,11 @@
  * @authorurl    http://michaeluno.jp
  * @since        0.0.1
  */
-// class ServerInformation_AdminPage extends AdminPageFramework {
+/* if ( ! class_exists( 'AdminPageFramework ' ) ) {
+    include( dirname( ServerInformation_Registry::$sDirPath ) . '/admin-page-framework/development/admin-page-framework.php' );
+    // include( dirname( ServerInformation_Registry::$sDirPath ) . '/admin-page-framework/library/admin-page-framework.min.php' );
+}
+class ServerInformation_AdminPage extends AdminPageFramework { */
 class ServerInformation_AdminPage extends ServerInformation_AdminPageFramework {
     
     /**

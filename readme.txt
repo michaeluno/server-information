@@ -47,6 +47,7 @@ Emails may not work on some servers with certain configurations. Please report a
 = 1.1.0 =
 - Added options to select information types to send.
 - Added more information for MySQL.
+- Fixed a bug that sending emails failed on servers with some error settings.
 - Updated the Admin Page Framework library.
 
 = 1.0.0 - 2014/12/25 =

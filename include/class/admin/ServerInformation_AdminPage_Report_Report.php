@@ -57,9 +57,7 @@ class ServerInformation_AdminPage_Report_Report {
                 'title'             => __( 'Report', 'server-information' ),
             )
         );       
-if ( $_bIsConfirming ) {
-    ServerInformation_AdminPageFramework_Debug::log( $oFactory->getSavedOptions() );
-}
+
         $oFactory->addSettingFields(
             'report',
             array( 
@@ -373,10 +371,9 @@ if ( $_bIsConfirming ) {
         foreach( ( array ) $aInput['report']['select_iofo'] as $_sInfoType => $_bChecked ) {
             if ( $_bChecked ) { continue; }
             $_sInfoType = ltrim( $_sInfoType, '.' );
-ServerInformation_AdminPageFramework_Debug::log( 'removing: ' . $_sInfoType );
+
             unset( $aInput['report'][ $_sInfoType ] );
         }
-ServerInformation_AdminPageFramework_Debug::log( $aInput );        
         
         // Otherwise, process the data.
         return $aInput;        
