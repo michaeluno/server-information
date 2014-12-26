@@ -1,6 +1,6 @@
 <?php
 if ( ! class_exists( 'ServerInformation_RevealerCustomFieldType' ) ) :
-class ServerInformation_RevealerCustomFieldType extends AdminPageFramework_FieldType {
+class ServerInformation_RevealerCustomFieldType extends ServerInformation_AdminPageFramework_FieldType {
         
     /**
      * Defines the field type slugs used for this field type.
