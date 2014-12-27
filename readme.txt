@@ -43,11 +43,14 @@ Emails may not work on some servers with certain configurations. Please report a
 
 == Changelog ==
 
+= 1.1.1b =
+- Updated the [Admin Page Framework](http://en.michaeluno.jp/admin-page-framework/) library.
+
 = 1.1.0 - 204/12/27 =
 - Added options to select information types to send.
 - Added more information for MySQL and the client.
 - Fixed a bug that sending emails failed on servers with some error settings.
-- Updated the Admin Page Framework library.
+- Updated the [Admin Page Framework](http://en.michaeluno.jp/admin-page-framework/) library.
 
 = 1.0.0 - 2014/12/25 =
 - Hosted on WordPress.org.

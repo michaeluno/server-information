@@ -160,18 +160,21 @@ class ServerInformation_AdminPage_Report_Report {
             ),
             array(
                 'field_id'      => 'client_info',
-                'type'          => 'system',     
+                // 'type'          => 'system',     
+                'type'          => 'textarea',     
                 'title'         => __( 'Client', 'server-information' ),
-                'data'          => array(
-                    __( 'Admin Page Framework', 'server-information' ) => '',
-                    __( 'WordPress', 'server-information' ) => '',
-                    __( 'Server', 'server-information' ) => '',
-                    __( 'PHP', 'server-information' ) => '',
-                    __( 'MySQL', 'server-information' ) => '',
-                    __( 'Client', 'server-information' ) => ServerInformation_Client::get(),
-                ),
+                // 'data'          => array(
+                    // __( 'Admin Page Framework', 'server-information' ) => '',
+                    // __( 'WordPress', 'server-information' ) => '',
+                    // __( 'Server', 'server-information' ) => '',
+                    // __( 'PHP', 'server-information' ) => '',
+                    // __( 'MySQL', 'server-information' ) => '',
+                    // __( 'Client', 'server-information' ) => ServerInformation_Client::get(),
+                // ),
+                'value'         => print_r( ServerInformation_Client::get(), true ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
+                    'readonly'  => 'readonly',
                 ),
                 'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.client_info' )
                     ? true
@@ -220,7 +223,8 @@ class ServerInformation_AdminPage_Report_Report {
             ),      
             array(
                 'field_id'      => 'mysql_info',
-                'type'          => 'system',     
+                // 'type'          => 'system',     
+                'type'          => 'textarea',     
                 'title'         => 'MySQL',
                 'data'          => array(
                     __( 'WordPress', 'server-information' ) => '',
@@ -230,8 +234,10 @@ class ServerInformation_AdminPage_Report_Report {
                     __( 'Variables', 'server-information' ) => ServerInformation_MySQL::get(),
                     
                 ),
+                'value'         => print_r( ServerInformation_MySQL::get(), true ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
+                    'readonly'  => 'readonly',
                 ),
                 'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.mysql_info' )
                     ? true
