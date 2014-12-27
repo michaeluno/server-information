@@ -37,16 +37,15 @@ Adds an email report form in the admin area to send server information.
 = The email does not seem to be sent. Is it broken? =
 Emails may not work on some servers with certain configurations. Please report an issue on the forum.
 
-
 == Screenshots ==
 
 1. ***Report Page***
 
 == Changelog ==
 
-= 1.1.0 =
+= 1.1.0 - 204/12/27 =
 - Added options to select information types to send.
-- Added more information for MySQL.
+- Added more information for MySQL and the client.
 - Fixed a bug that sending emails failed on servers with some error settings.
 - Updated the Admin Page Framework library.
 

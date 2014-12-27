@@ -19,7 +19,17 @@ class ServerInformation_MySQL {
         global $wpdb;
         $_aVariables = array();
         $_aRows = $wpdb->get_results( "SHOW VARIABLES", ARRAY_A );
-        return $_aRows;
+
+        $_aOutput = array();
+        foreach( ( array ) $_aRows as $_iIndex => $_aItem ) {
+            
+            $_aItem     = array_values( $_aItem );
+            $_sKey      = array_shift( $_aItem );
+            $_sValue    = array_shift( $_aItem );
+            $_aOutput[ $_sKey ] = $_sValue;
+            
+        }
+        return $_aOutput;
         
     }
 

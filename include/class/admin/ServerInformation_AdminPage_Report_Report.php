@@ -135,14 +135,16 @@ class ServerInformation_AdminPage_Report_Report {
                 'title'         => __( 'Select Information Types', 'server-information' ),
                 'select_type'   => 'checkbox',
                 'label'         => array(
+                    '.client_info'          => __( 'Client', 'server-information' ),
                     '.wordpress_info'       => 'WordPress',
                     '.php_info'             => 'PHP',
                     '.mysql_info'           => 'MySQL',
                     '.web_server_info'      => __( 'Web Server', 'server-information' ),
-                    '.server_infor_info'    => ServerInformation_Registry::Name,
+                    '.server_infor_info'    => __( 'Plugin', 'server-information' ) . ': '. ServerInformation_Registry::Name,
                     '.framework_info'       => 'Admin Page Framework',
                 ),
                 'default'       => array(
+                    '.client_info'          => true,
                     '.wordpress_info'       => true,
                     '.php_info'             => true,
                     '.mysql_info'           => true,
@@ -156,6 +158,27 @@ class ServerInformation_AdminPage_Report_Report {
                         : null,
                 ),
             ),
+            array(
+                'field_id'      => 'client_info',
+                'type'          => 'system',     
+                'title'         => __( 'Client', 'server-information' ),
+                'data'          => array(
+                    __( 'Admin Page Framework', 'server-information' ) => '',
+                    __( 'WordPress', 'server-information' ) => '',
+                    __( 'Server', 'server-information' ) => '',
+                    __( 'PHP', 'server-information' ) => '',
+                    __( 'MySQL', 'server-information' ) => '',
+                    __( 'Client', 'server-information' ) => ServerInformation_Client::get(),
+                ),
+                'attributes'    => array( 
+                    'rows'      =>  10, 
+                ),
+                'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.client_info' )
+                    ? true
+                    : false,
+                'class'         => array( 'fieldrow' => 'client_info', ),                
+                'hidden'        => true,
+            ),                   
             array(
                 'field_id'      => 'wordpress_info',
                 'type'          => 'system',     

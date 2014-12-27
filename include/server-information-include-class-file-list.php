@@ -7,6 +7,7 @@ $_aClassFiles = array(
 	"ServerInformation_AutoLoad"	=>	ServerInformation_Registry::$sDirPath . "/include/class/boot/ServerInformation_AutoLoad.php", 
 	"ServerInformation_Bootstrap"	=>	ServerInformation_Registry::$sDirPath . "/include/class/boot/ServerInformation_Bootstrap.php", 
 	"ServerInformation_Requirements"	=>	ServerInformation_Registry::$sDirPath . "/include/class/boot/ServerInformation_Requirements.php", 
+	"ServerInformation_Client"	=>	ServerInformation_Registry::$sDirPath . "/include/class/utility/ServerInformation_Client.php", 
 	"ServerInformation_MySQL"	=>	ServerInformation_Registry::$sDirPath . "/include/class/utility/ServerInformation_MySQL.php", 
 	"ServerInformation_PHP"	=>	ServerInformation_Registry::$sDirPath . "/include/class/utility/ServerInformation_PHP.php", 
 );
