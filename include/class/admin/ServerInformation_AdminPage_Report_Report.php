@@ -57,7 +57,7 @@ class ServerInformation_AdminPage_Report_Report {
                 'title'             => __( 'Report', 'server-information' ),
             )
         );       
-
+                
         $oFactory->addSettingFields(
             'report',
             array( 
@@ -135,22 +135,26 @@ class ServerInformation_AdminPage_Report_Report {
                 'title'         => __( 'Select Information Types', 'server-information' ),
                 'select_type'   => 'checkbox',
                 'label'         => array(
-                    '.client_info'          => __( 'Client', 'server-information' ),
-                    '.wordpress_info'       => 'WordPress',
-                    '.php_info'             => 'PHP',
-                    '.mysql_info'           => 'MySQL',
-                    '.web_server_info'      => __( 'Web Server', 'server-information' ),
-                    '.server_infor_info'    => __( 'Plugin', 'server-information' ) . ': '. ServerInformation_Registry::Name,
-                    '.framework_info'       => 'Admin Page Framework',
+                    '.client_info'              => __( 'Client', 'server-information' ),
+                    '.wordpress_info'           => 'WordPress',
+                    '.php_info'                 => 'PHP',
+                    '.php_error_log'            => __( 'PHP Errors', 'server-information' ),
+                    '.mysql_info'               => 'MySQL',
+                    '.mysql_error_log'          => __( 'MySQL Errors', 'server-information' ),
+                    '.web_server_info'          => __( 'Web Server', 'server-information' ),
+                    '.server_info_plugin_info'  => __( 'Plugin', 'server-information' ) . ': '. ServerInformation_Registry::Name,
+                    '.framework_info'           => 'Admin Page Framework',
                 ),
                 'default'       => array(
-                    '.client_info'          => true,
-                    '.wordpress_info'       => true,
-                    '.php_info'             => true,
-                    '.mysql_info'           => true,
-                    '.web_server_info'      => true,
-                    '.server_infor_info'    => true,
-                    '.framework_info'       => true,
+                    '.client_info'              => true,
+                    '.wordpress_info'           => true,
+                    '.php_info'                 => true,
+                    '.php_error_log'            => true,
+                    '.mysql_info'               => true,
+                    '.mysql_error_log'          => true,
+                    '.web_server_info'          => true,
+                    '.server_info_plugin_info'  => true,
+                    '.framework_info'           => true,
                 ),
                 'attributes'    => array(
                     'disabled'  => $_bIsConfirming
@@ -158,18 +162,22 @@ class ServerInformation_AdminPage_Report_Report {
                         : null,
                 ),
             ),
+        // Start of System Information
             array(
                 'field_id'      => 'client_info',
                 // 'type'          => 'system',     
                 'type'          => 'textarea',     
                 'title'         => __( 'Client', 'server-information' ),
+                // 'print_type'    => 2,
                 // 'data'          => array(
-                    // __( 'Admin Page Framework', 'server-information' ) => '',
-                    // __( 'WordPress', 'server-information' ) => '',
-                    // __( 'Server', 'server-information' ) => '',
-                    // __( 'PHP', 'server-information' ) => '',
-                    // __( 'MySQL', 'server-information' ) => '',
-                    // __( 'Client', 'server-information' ) => ServerInformation_Client::get(),
+                    // 'Admin Page Framework'   => '',
+                    // 'WordPress'              => '',
+                    // 'Server'                 => '',
+                    // 'PHP'                    => '',
+                    // 'PHP Error Log'          => '',
+                    // 'MySQL'                  => '',
+                    // 'MySQL Error Log'       => '',
+                    // 'Client'                 => ServerInformation_Client::get(),
                 // ),
                 'value'         => print_r( ServerInformation_Client::get(), true ),
                 'attributes'    => array( 
@@ -186,11 +194,14 @@ class ServerInformation_AdminPage_Report_Report {
                 'field_id'      => 'wordpress_info',
                 'type'          => 'system',     
                 'title'         => 'WordPress',
+                'print_type'    => 2,
                 'data'          => array(
-                    __( 'Admin Page Framework', 'server-information' ) => '',
-                    __( 'Server', 'server-information' ) => '',
-                    __( 'PHP', 'server-information' ) => '',
-                    __( 'MySQL', 'server-information' ) => '',
+                    'Admin Page Framework'  => '',
+                    'Server'                => '',
+                    'PHP'                   => '',
+                    'PHP Error Log'         => '',
+                    'MySQL'                 => '',
+                    'MySQL Error Log'       => '',
                 ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
@@ -203,18 +214,23 @@ class ServerInformation_AdminPage_Report_Report {
             ),        
             array(
                 'field_id'      => 'php_info',
-                'type'          => 'system',     
+                'type'          => 'textarea',     
                 'title'         => 'PHP',
-                'data'          => array(
-                    __( 'WordPress', 'server-information' ) => '',
-                    __( 'Admin Page Framework', 'server-information' ) => '',
-                    __( 'Server', 'server-information' ) => '',
-                    __( 'MySQL', 'server-information' ) => '',
-                    'PHPInfo'   => ServerInformation_PHP::get(),
-                ),
+                // 'print_type'    => 2,
+                // 'data'          => array(
+                    // 'WordPress'             => '',
+                    // 'Admin Page Framework'  => '',
+                    // 'Server'                => '',
+                    // 'PHP'                   => '',                    
+                    // 'PHP Error Log'         => '',
+                    // 'MySQL'                 => '',
+                    // 'MySQL Error Log'       => '',
+                // ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
+                    'readonly'  => 'readonly',
                 ),
+                'value'         => print_r( ServerInformation_PHP::get(), true ),
                 'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.php_info' )
                     ? true
                     : false,
@@ -222,18 +238,44 @@ class ServerInformation_AdminPage_Report_Report {
                 'hidden'        => true,
             ),      
             array(
+                'field_id'      => 'php_error_log',
+                // 'type'          => 'textarea',     
+                'type'          => 'system',     
+                'title'         => __( 'PHP Error Log', 'server-information' ),
+                'data'          => array(
+                    'WordPress'             => '',
+                    'Admin Page Framework'  => '',
+                    'Server'                => '',
+                    'PHP'                   => '',                       
+                    'MySQL'                 => '',
+                    'MySQL Error Log'       => '',                    
+                ),
+                'attributes'    => array( 
+                    'rows'      =>  10, 
+                    'readonly'  => 'readonly',
+                ),
+                // 'value'         => print_r( ServerInformation_PHP::get(), true ),
+                // 'value'         => print_r( ServerInformation_AdminPageFramework_WPUtility::getPHPErrorLog( 500 ), true ),
+                'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.php_info' )
+                    ? true
+                    : false,
+                'class'         => array( 'fieldrow' => 'php_info', ),                
+                'hidden'        => true,
+            ),             
+            array(
                 'field_id'      => 'mysql_info',
                 // 'type'          => 'system',     
                 'type'          => 'textarea',     
                 'title'         => 'MySQL',
-                'data'          => array(
-                    __( 'WordPress', 'server-information' ) => '',
-                    __( 'Admin Page Framework', 'server-information' ) => '',
-                    __( 'Server', 'server-information' ) => '',
-                    __( 'PHP', 'server-information' ) => '',
-                    __( 'Variables', 'server-information' ) => ServerInformation_MySQL::get(),
-                    
-                ),
+                // 'data'          => array(
+                    // 'WordPress'             => '',
+                    // 'Admin Page Framework'  => '',
+                    // 'Server'                => '',
+                    // 'PHP'                   => '',
+                    // 'PHP Error Log'         => '',
+                    // 'MySQL Error Log'       => '',                    
+                    // 'Variables'             => ServerInformation_MySQL::get(),
+                // ),
                 'value'         => print_r( ServerInformation_MySQL::get(), true ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
@@ -246,14 +288,38 @@ class ServerInformation_AdminPage_Report_Report {
                 'hidden'        => true,
             ),  
             array(
+                'field_id'      => 'mysql_error_log',
+                'type'          => 'system',     
+                'title'         => __( 'MySQL Error Log', 'server-information' ),
+                'print_type'    => 2,
+                'data'          => array(
+                    'WordPress'             => '',
+                    'Admin Page Framework'  => '',
+                    'PHP'                   => '',
+                    'PHP Error Log'         => '',
+                    'MySQL'                 => '',                    
+                ),
+                'attributes'    => array( 
+                    'rows'      =>  10, 
+                ),
+                'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.mysql_error_log' )
+                    ? true
+                    : false,                
+                'class'         => array( 'fieldrow' => 'mysql_error_log', ),                
+                'hidden'        => true,
+            ),                
+            array(
                 'field_id'      => 'web_server_info',
                 'type'          => 'system',     
                 'title'         => __( 'Web Server', 'server-information' ),
+                'print_type'    => 2,
                 'data'          => array(
-                    __( 'WordPress', 'server-information' ) => '',
-                    __( 'Admin Page Framework', 'server-information' ) => '',
-                    __( 'PHP', 'server-information' ) => '',
-                    __( 'MySQL', 'server-information' ) => '',
+                    'WordPress'             => '',
+                    'Admin Page Framework'  => '',
+                    'PHP'                   => '',
+                    'PHP Error Log'         => '',
+                    'MySQL'                 => '',
+                    'MySQL Error Log'       => '',                    
                 ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
@@ -265,35 +331,39 @@ class ServerInformation_AdminPage_Report_Report {
                 'hidden'        => true,
             ),            
             array(
-                'field_id'      => 'server_infor_info',
+                'field_id'      => 'server_info_plugin_info',
                 'type'          => 'system',     
                 'title'         => __( 'Plugin', 'server-information' ),
                 'data'          => array(
-                    __( 'WordPress', 'server-information' ) => '',
-                    __( 'Admin Page Framework', 'server-information' ) => '',
-                    __( 'Server', 'server-information' ) => '',
-                    __( 'PHP', 'server-information' ) => '',
-                    __( 'MySQL', 'server-information' ) => '',
+                    'WordPress'             => '',
+                    'Admin Page Framework'  => '',
+                    'Server'                => '',
+                    'PHP'                   => '',
+                    'PHP Error Log'         => '',
+                    'MySQL'                 => '',
+                    'MySQL Error Log'       => '',                    
                     __( 'Plugin', 'server-information' ) . ': ' . ServerInformation_Registry::Name => ServerInformation_Registry::getInfo(),
                 ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
                 ),
-                'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.server_infor_info' )
+                'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.server_info_plugin_info' )
                     ? true
                     : false,                
-                'class'         => array( 'fieldrow' => 'server_infor_info', ),                
+                'class'         => array( 'fieldrow' => 'server_info_plugin_info', ),                
                 'hidden'        => true,
             ),       
             array(
                 'field_id'      => 'framework_info',
                 'type'          => 'system',     
                 'title'         => __( 'Admin Page Framework', 'server-information' ),
-                'data'          => array(
-                    __( 'WordPress', 'server-information' ) => '',
-                    __( 'Server', 'server-information' ) => '',
-                    __( 'PHP', 'server-information' ) => '',
-                    __( 'MySQL', 'server-information' ) => '',
+                'data'          => array(                   
+                    'WordPress'             => '',
+                    'Server'                => '',
+                    'PHP'                   => '',
+                    'PHP Error Log'         => '',                    
+                    'MySQL'                 => '',
+                    'MySQL Error Log'       => '',
                 ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
@@ -304,22 +374,7 @@ class ServerInformation_AdminPage_Report_Report {
                 'class'         => array( 'fieldrow' => 'framework_info', ),                
                 'hidden'        => true,
             ),                    
-/*             array(
-                'field_id'      => 'system_information',
-                'type'          => 'system',     
-                'title'         => __( 'System Information', 'server-information' ),
-                'data'          => array(
-                    // __( 'Custom Data', 'server-information' )    => __( 'This is custom data inserted with the data argument.', 'server-information' ),
-                    // __( 'Current Time', 'admin-page-framework' )        => '', // Removes the Current Time Section.
-                    __( 'Plugin', 'server-information' ) . ': ' . ServerInformation_Registry::Name => ServerInformation_Registry::getInfo(),
-                    'PHPInfo'   => $this->_getPHPInfo(),
-                )
-                ,
-                'attributes'    => array(
-                    'rows'          =>  10,
-                ),
-                // 'hidden'        => true,
-            ),    */        
+        // End of System Information
             array( 
                 'field_id'          => 'has_confirmed',
                 'type'              => 'hidden',
