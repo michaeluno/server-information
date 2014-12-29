@@ -22,7 +22,7 @@ final class ServerInformation_Bootstrap {
      * Indicates whether the bootstrap has been loaded or not so that multiple instances of this class won't be created.      
      */
     static public $_bLoaded = false;
-    
+        
     /**
      * Sets up properties and hooks.
      * 
@@ -55,7 +55,7 @@ final class ServerInformation_Bootstrap {
         // register_deactivation_hook( $this->_sFilePath, array( $this, '_replyToDoWhenPluginDeactivates' ) );
                 
         // 7. Check requirements.
-        add_action( 'admin_init', array( $this, '_replyToCheckRequirements' ) );
+        register_activation_hook( $this->_sFilePath, array( $this, '_replyToCheckRequirements' ) );
         
         // 8. Schedule to load plugin specific components.
         add_action( 'plugins_loaded', array( $this, '_replyToLoadPluginComponents' ) );
@@ -105,31 +105,44 @@ final class ServerInformation_Bootstrap {
      */
     public function _replyToCheckRequirements() {
 
-        new ServerInformation_Requirements( 
-            $this->_sFilePath,
+        $_oRequirementCheck = new ServerInformation_AdminPageFramework_Requirement(
             array(
-                'php' => array(
-                    'version'    =>    ServerInformation_Registry::RequiredPHPVersion,
-                    'error'        =>    __( 'The plugin requires the PHP version %1$s or higher.', 'uploader-anywheere' ),
+                'php'       => array(
+                    'version'    => ServerInformation_Registry::RequiredPHPVersion,
+                    'error'      => __( 'The plugin requires the PHP version %1$s or higher.', 'uploader-anywheere' ),
                 ),
                 'wordpress' => array(
-                    'version'    =>    ServerInformation_Registry::RequiredWordPressVersion,
-                    'error'        =>    __( 'The plugin requires the WordPress version %1$s or higher.', 'uploader-anywheere' ),
+                    'version'    => ServerInformation_Registry::RequiredWordPressVersion,
+                    'error'      => __( 'The plugin requires the WordPress version %1$s or higher.', 'uploader-anywheere' ),
                 ),
-                // 'mysql'    =>    array(
+                'mysql'     => '',  // disabled
+                // array(
                     // 'version'    =>    '5.5.24',
                     // 'error' => __( 'The plugin requires the MySQL version %1$s or higher.', 'uploader-anywheere' ),
                 // ),
                 'functions' => array(
+                    // '_test'          => 'This is a test',
                     'curl_version' => sprintf( __( 'The plugin requires the %1$s to be installed.', 'uploader-anywheere' ), 'the cURL library' ),
                 ),
+                'classes'       => '',  // disabled
                 // 'classes' => array(
                     // 'DOMDocument' => sprintf( __( 'The plugin requires the <a href="%1$s">libxml</a> extension to be activated.', 'pseudo-image' ), 'http://www.php.net/manual/en/book.libxml.php' ),
                 // ),
-                'constants'    => array(),
-            )
-        );    
-        
+                'constants'    => '',   // disabled
+            ),
+            ServerInformation_Registry::Name
+        );
+        $_iWarnings = $_oRequirementCheck->check();
+        if ( $_iWarnings  ) {            
+
+            $_oRequirementCheck->deactivatePlugin( 
+                $this->_sFilePath, 
+                __( 'Deactivating the plugin', 'server-information' ),  // additional message
+                true    // is in the activation hook. 
+            );
+                        
+        }        
+         
     }
 
     /**
