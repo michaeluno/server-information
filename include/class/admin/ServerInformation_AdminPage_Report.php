@@ -42,6 +42,7 @@ class ServerInformation_AdminPage_Report {
 
         // Register custom field types
         new ServerInformation_RevealerCustomFieldType( $oAdminPage->oProp->sClassName );
+        new ServerInformation_ServerInformationCutomFieldType( $oAdminPage->oProp->sClassName );
         
         // Define the general tab.
         new ServerInformation_AdminPage_Report_Report( 

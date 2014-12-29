@@ -176,8 +176,9 @@ class ServerInformation_AdminPage_Report_Report {
                     // 'PHP'                    => '',
                     // 'PHP Error Log'          => '',
                     // 'MySQL'                  => '',
-                    // 'MySQL Error Log'       => '',
+                    // 'MySQL Error Log'        => '',
                     // 'Client'                 => ServerInformation_Client::get(),
+                    // 'Browser'                => '',
                 // ),
                 'value'         => print_r( ServerInformation_Client::get(), true ),
                 'attributes'    => array( 
@@ -192,7 +193,8 @@ class ServerInformation_AdminPage_Report_Report {
             ),                   
             array(
                 'field_id'      => 'wordpress_info',
-                'type'          => 'system',     
+                // 'type'          => 'system',     
+                'type'          => 'server_information',     
                 'title'         => 'WordPress',
                 'print_type'    => 2,
                 'data'          => array(
@@ -202,6 +204,7 @@ class ServerInformation_AdminPage_Report_Report {
                     'PHP Error Log'         => '',
                     'MySQL'                 => '',
                     'MySQL Error Log'       => '',
+                    // 'Browser'               => '',
                 ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
@@ -225,6 +228,7 @@ class ServerInformation_AdminPage_Report_Report {
                     // 'PHP Error Log'         => '',
                     // 'MySQL'                 => '',
                     // 'MySQL Error Log'       => '',
+                    // 'Browser'               => '',
                 // ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
@@ -249,6 +253,7 @@ class ServerInformation_AdminPage_Report_Report {
                     'PHP'                   => '',                       
                     'MySQL'                 => '',
                     'MySQL Error Log'       => '',                    
+                    'Browser'               => '',
                 ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
@@ -275,6 +280,7 @@ class ServerInformation_AdminPage_Report_Report {
                     // 'PHP Error Log'         => '',
                     // 'MySQL Error Log'       => '',                    
                     // 'Variables'             => ServerInformation_MySQL::get(),
+                    // 'Browser'               => '',
                 // ),
                 'value'         => print_r( ServerInformation_MySQL::get(), true ),
                 'attributes'    => array( 
@@ -298,6 +304,7 @@ class ServerInformation_AdminPage_Report_Report {
                     'PHP'                   => '',
                     'PHP Error Log'         => '',
                     'MySQL'                 => '',                    
+                    'Browser'               => '',
                 ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
@@ -319,7 +326,8 @@ class ServerInformation_AdminPage_Report_Report {
                     'PHP'                   => '',
                     'PHP Error Log'         => '',
                     'MySQL'                 => '',
-                    'MySQL Error Log'       => '',                    
+                    'MySQL Error Log'       => '',       
+                    'Browser'               => '',                    
                 ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
@@ -343,6 +351,7 @@ class ServerInformation_AdminPage_Report_Report {
                     'MySQL'                 => '',
                     'MySQL Error Log'       => '',                    
                     __( 'Plugin', 'server-information' ) . ': ' . ServerInformation_Registry::Name => ServerInformation_Registry::getInfo(),
+                    'Browser'               => '',
                 ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
@@ -364,6 +373,7 @@ class ServerInformation_AdminPage_Report_Report {
                     'PHP Error Log'         => '',                    
                     'MySQL'                 => '',
                     'MySQL Error Log'       => '',
+                    // 'Browser'               => '',
                 ),
                 'attributes'    => array( 
                     'rows'      =>  10, 
