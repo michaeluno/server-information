@@ -83,7 +83,7 @@ final class ServerInformation_Bootstrap {
         // Include necessary files.
         include( $_sPluginDir . '/include/class/boot/ServerInformation_AutoLoad.php' );
         if ( $this->_bIsAdmin ) {
-            include( $_sPluginDir . '/include/library/admin-page-framework/server-information-admin-page-framework-min.php' );
+            include( $_sPluginDir . '/include/library/admin-page-framework/server-information-admin-page-framework.min.php' );
         }
                     
         // Include the include lists. The including file reassigns the list(array) to the $_aClassFiles variable.
