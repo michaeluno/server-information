@@ -45,6 +45,7 @@ Emails may not work on some servers with certain configurations. Please report a
 
 = 1.1.1b =
 - Added PHP and MySQL logs.
+- Fixed an issue with PHP v5.5 or above that information fields became empty.
 - Updated the [Admin Page Framework](http://en.michaeluno.jp/admin-page-framework/) library.
 
 = 1.1.0 - 204/12/27 =
