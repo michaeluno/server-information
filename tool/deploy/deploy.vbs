@@ -173,27 +173,32 @@ End If
 
 
 ' SVN Commit to Trunk
+' Delete all files that should not be added.
+' Add all new files that are not set to be ignored. 
 ProgressMsg "Changing the directory to SVN and committing to trunk.", sScriptTitle
 sCommitMessage = "Preparing for " & sCurrentVersion & " release."
 sCommand = "cmd /K " _ 
     & "cd /d " & sTempSVNTrunkDirWQ & " & " _
-    & "svn status | grep -v " & chr( 34 ) & "^.[ \t]*\..*" & chr( 34 ) & " | grep " & chr( 34 ) & "^\!" & chr( 34 ) & " | gawk '{print $2}' | xargs svn del & " _  ' Delete all files that should not be added.
-    & "svn status | grep -v " & chr( 34 ) & "^.[ \t]*\..*" & chr( 34 ) & " | grep " & chr( 34 ) & "^?" & chr( 34 ) & " | gawk '{print $2}' | xargs svn add & "  _     ' Add all new files that are not set to be ignored. 
+    & "svn status | grep -v " & chr( 34 ) & "^.[ \t]*\..*" & chr( 34 ) & " | grep " & chr( 34 ) & "^\!" & chr( 34 ) & " | gawk '{print $2}' | xargs svn del & " _ 
+    & "svn status | grep -v " & chr( 34 ) & "^.[ \t]*\..*" & chr( 34 ) & " | grep " & chr( 34 ) & "^?" & chr( 34 ) & " | gawk '{print $2}' | xargs svn add & " _
     & "svn commit --username=" & sSVNUserName & " -m " & chr( 34 ) & sCommitMessage & chr( 34 )
  
 
 ' New SVN Tag and Commit
 ProgressMsg "Creating new SVN tag and committing it.", sScriptTitle
 sCommitMessage              = "Tagging version " & sCurrentVersion & "."
-sTempSVNNewVersionTagDirWQ  = chr( 34 ) & sTempSVNTagsDir & "\" sCurrentVersion & chr( 34 )
-sSVNTagAssetDirPathWQ       = chr( 34 ) & sTempSVNTagsDir & "\" sCurrentVersion & "\assets" & chr( 34 )
-sSVNTagTrunkDirPathWQ       = chr( 34 ) & sTempSVNTagsDir & "\" sCurrentVersion & "\trunk" & chr( 34 )
-sCommand = "cmd /K " _ 
-    & "cd /d " & sTempSVNDirPath & " & " _  ' change directory to the SVN temp working copy root
+sTempSVNNewVersionTagDirWQ  = chr( 34 ) & sTempSVNTagsDir & "\" & sCurrentVersion & chr( 34 )
+sSVNTagAssetDirPathWQ       = chr( 34 ) & sTempSVNTagsDir & "\" & sCurrentVersion & "\assets" & chr( 34 )
+sSVNTagTrunkDirPathWQ       = chr( 34 ) & sTempSVNTagsDir & "\" & sCurrentVersion & "\trunk" & chr( 34 )
+' change directory to the SVN temp working copy root
+' Remove assets directory from tag directory
+' Remove trunk directory from tag directory
+sCommand = "cmd /K " _
+    & "cd /d " & sTempSVNDirPath & " & " _ 
     & "svn update --quiet " & sTempSVNNewVersionTagDirWQ & " & " _
     & "svn copy --quiet " & sTempSVNTrunkDirWQ & " " & sTempSVNNewVersionTagDirWQ & " & "_
-    & "svn delete --force --quiet " & sSVNTagAssetDirPathWQ & " & " _    ' Remove assets directory from tag directory
-    & "svn delete --force --quiet " & sSVNTagTrunkDirPathWQ & " & " _    ' Remove trunk directory from tag directory
+    & "svn delete --force --quiet " & sSVNTagAssetDirPathWQ & " & " _
+    & "svn delete --force --quiet " & sSVNTagTrunkDirPathWQ & " & " _
     & "cd /d " & sTempSVNNewVersionTagDirWQ & " & " _
     & "svn commit --username=" & sSVNUserName & " -m " & chr( 34 ) & sCommitMessage & chr( 34 )
     
