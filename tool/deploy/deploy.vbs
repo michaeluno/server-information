@@ -166,7 +166,7 @@ sCommand = "cmd /K " _
 WshShell.run sCommand, 1, true
 
 ' @todo If submodule exist, recursively check out their indexes
-sModuleFilePath  = sGitDirPath & "\.gitmodules" & 
+sModuleFilePath  = sGitDirPath & "\.gitmodules"
 if fileExists( sModuleFilePath ) Then 
     ' @todo "Export the HEAD of each submodule from git to the trunk of SVN"
 End If    
