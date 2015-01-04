@@ -4,7 +4,7 @@ Donate link:        http://en.michaeluno.jp/donate
 Tags:               system, system information, admin tool, tool, server, server information, email, report, bug report, report form, form, email form
 Requires at least:  3.3
 Tested up to:       4.1.0
-Stable tag:         1.1.0
+Stable tag:         1.1.1
 License:            GPLv2 or later
 License URI:        http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,7 +43,7 @@ Emails may not work on some servers with certain configurations. Please report a
 
 == Changelog ==
 
-= 1.1.1b =
+= 1.1.1 - 2014/01/04 =
 - Added PHP and MySQL logs.
 - Fixed an issue with PHP v5.5 or above that information fields became empty.
 - Updated the [Admin Page Framework](http://en.michaeluno.jp/admin-page-framework/) library.
