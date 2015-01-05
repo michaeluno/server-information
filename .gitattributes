@@ -4,3 +4,4 @@
 .gitignore export-ignore
 *.vbs export-ignore
 *.ini export-ignore
+*.cfg export-ignore
