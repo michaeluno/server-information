@@ -43,7 +43,7 @@ Emails may not work on some servers with certain configurations. Please report a
 
 == Changelog ==
 
-= 1.1.1 - 2014/01/04 =
+= 1.1.1 - 2014/01/06 =
 - Added PHP and MySQL logs.
 - Fixed an issue with PHP v5.5 or above that information fields became empty.
 - Updated the [Admin Page Framework](http://en.michaeluno.jp/admin-page-framework/) library.
