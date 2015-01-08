@@ -3,7 +3,7 @@
  * Handles the initial set-up for the plugin.
  *    
  * @package      Server Information
- * @copyright    Copyright (c) 2014, <Michael Uno>
+ * @copyright    Copyright (c) 2015, <Michael Uno>
  * @author       Michael Uno
  * @authorurl    http://michaeluno.jp
  * @since        0.0.1
@@ -13,7 +13,7 @@
 /**
  * Loads the plugin.
  * 
- * @action      do      custom_featured_image_action_after_loading_plugin
+ * @action      do      server_information_action_after_loading_plugin
  * @since       0.0.1
  */
 final class ServerInformation_Bootstrap {
@@ -201,7 +201,7 @@ final class ServerInformation_Bootstrap {
         }            
         
         // Modules should use this hook.
-        do_action( 'custom_featured_image_action_after_loading_plugin' );
+        do_action( 'server_information_action_after_loading_plugin' );
         
     }
 

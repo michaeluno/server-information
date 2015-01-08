@@ -43,6 +43,9 @@ Emails may not work on some servers with certain configurations. Please report a
 
 == Changelog ==
 
+= 1.1.2 =
+- Fixed an action name that is triggered when all the plugin components are loaded.
+
 = 1.1.1 - 2014/01/06 =
 - Added PHP and MySQL logs.
 - Fixed an issue with PHP v5.5 or above that information fields became empty.
