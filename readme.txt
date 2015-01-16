@@ -12,12 +12,11 @@ Adds an email report form in the admin area to send server information.
 
 == Description ==
 
-<h4>Features</h4>
-- **Server Information** - it displays WordPress, PHP, and MySQL information.
-- **Email** - it lets the user send those information as an email.
+Troubleshooting with your plugin or theme developer? Send your server information to them with a few clicks.
 
-<h4>Notes</h4>
-- Sending emails may not function on some servers. In that case, please report in the support forum.
+<h4>Features</h4>
+- **Server Information** - displays WordPress, PHP, MySQL information and more.
+- **Email** - lets you send those information as an email.
 
 == Installation ==
 
