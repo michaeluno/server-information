@@ -42,7 +42,7 @@ Emails may not work on some servers with certain configurations. Please report a
 
 == Changelog ==
 
-= 1.1.2 =
+= 1.1.2 - 2015/01/16 =
 - Fixed an action name that is triggered when all the plugin components are loaded.
 
 = 1.1.1 - 2014/01/06 =
