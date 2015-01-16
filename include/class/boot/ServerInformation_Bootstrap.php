@@ -132,15 +132,17 @@ final class ServerInformation_Bootstrap {
             ),
             ServerInformation_Registry::Name
         );
-        $_iWarnings = $_oRequirementCheck->check();
-        if ( $_iWarnings  ) {            
+        
+        // If there is an error,
+        if ( $_oRequirementCheck->check() ) {            
 
             $_oRequirementCheck->deactivatePlugin( 
                 $this->_sFilePath, 
                 __( 'Deactivating the plugin', 'server-information' ),  // additional message
                 true    // is in the activation hook. 
             );
-                        
+            exit;
+            
         }        
          
     }
