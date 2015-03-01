@@ -1,13 +1,11 @@
 # Externals
-/tool/minifier/class/library/PHP_Beautifier
+/tool/minifier/class/library/
+/tool/beautifier/class/library/
+*/PHP_Beautifier
 
-# Script configuration files
-*.ini
-*.cfg
-
-# backup files
-*.bak
+# backup files.
 *.old
+*.bak
 
 # Compiled source #
 ###################
