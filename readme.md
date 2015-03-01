@@ -9,8 +9,8 @@ Server Information is an open source WordPress plugin that adds an email report 
 ## Screenshots ##
 
 <p align="center">
-	<a href="https://ps.w.org/server-information/assets/screenshot-1.png?rev=1081777" title="Server Information - Email Form">
-		<img src="http://plugins.svn.wordpress.org/server-information/assets/screenshot-1.png" alt="Server Information - Email Form" width="400px" />
+	<a href="https://lh3.googleusercontent.com/-zY0zc4UCqUA/VPNCXhmBYbI/AAAAAAAAB8w/PL64HzjhPCg/s0/screenshot-1.png" title="Server Information - Email Form">
+		<img src="https://lh3.googleusercontent.com/-zY0zc4UCqUA/VPNCXhmBYbI/AAAAAAAAB8w/PL64HzjhPCg/s400/screenshot-1.png" alt="Server Information - Email Form" />
 	</a> 
 </p>
 
