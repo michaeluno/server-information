@@ -83,7 +83,7 @@ final class ServerInformation_Bootstrap {
         // Include necessary files.
         include( $_sPluginDir . '/include/class/boot/ServerInformation_AutoLoad.php' );
         if ( $this->_bIsAdmin ) {
-            include( $_sPluginDir . '/include/library/admin-page-framework/server-information-admin-page-framework.min.php' );
+            include( $_sPluginDir . '/include/library/admin-page-framework/admin-page-framework.php' );
         }
                     
         // Include the include lists. The including file reassigns the list(array) to the $_aClassFiles variable.
@@ -108,11 +108,11 @@ final class ServerInformation_Bootstrap {
         $_oRequirementCheck = new ServerInformation_AdminPageFramework_Requirement(
             array(
                 'php'       => array(
-                    'version'    => ServerInformation_Registry::RequiredPHPVersion,
+                    'version'    => ServerInformation_Registry::REQUIRED_PHP_VERSION,
                     'error'      => __( 'The plugin requires the PHP version %1$s or higher.', 'uploader-anywheere' ),
                 ),
                 'wordpress' => array(
-                    'version'    => ServerInformation_Registry::RequiredWordPressVersion,
+                    'version'    => ServerInformation_Registry::REQUIRED_WORDPRESSS_VERSION,
                     'error'      => __( 'The plugin requires the WordPress version %1$s or higher.', 'uploader-anywheere' ),
                 ),
                 'mysql'     => '',  // disabled
@@ -130,7 +130,7 @@ final class ServerInformation_Bootstrap {
                 // ),
                 'constants'    => '',   // disabled
             ),
-            ServerInformation_Registry::Name
+            ServerInformation_Registry::NAME
         );
         
         // If there is an error,
@@ -167,7 +167,7 @@ final class ServerInformation_Bootstrap {
         if ( ! $this->_bIsAdmin ) { return; }
         
         load_plugin_textdomain( 
-            ServerInformation_Registry::TextDomain, 
+            ServerInformation_Registry::TEXT_DOMAIN, 
             false, 
             dirname( plugin_basename( $this->_sFilePath ) ) . '/language/'
         );
@@ -195,7 +195,6 @@ final class ServerInformation_Bootstrap {
             
             // 3.1. Create admin pages - just the example link in the submenu.
             new ServerInformation_AdminPage( 
-                // ServerInformation_Registry::OptionKey,
                 '',
                 $this->_sFilePath   // caller script path
             );

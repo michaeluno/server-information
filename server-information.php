@@ -5,28 +5,28 @@
 	Description:    Adds an email report form in the admin area to send server information.
 	Author:         Michael Uno
 	Author URI:     http://michaeluno.jp
-	Version:        1.1.2
+	Version:        1.1.3b
 	Requirements:   PHP 5.2.4 or above, WordPress 3.3 or above. Admin Page Framework 3.0.6 or above
 */
 
 /**
  * The base class of the registry class which provides basic plugin information.
  * 
- * The minifier script and the inclusion script also refer to the constants. 
+ * Te inclusion script also refer to the constants. 
  * 
  * @since       0.0.1
  */
 class ServerInformation_Registry_Base {
 
-	const Version        = '1.1.2';    // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
-	const Name           = 'Server Information';
-	const Description    = 'Adds an email report form to send server information in the admin area.';
+	const VERSION        = '1.1.3b';    // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
+	const NAME           = 'Server Information';
+	const DESCRIPTION    = 'Adds an email report form to send server information in the admin area.';
 	const URI            = 'http://en.michaeluno.jp/';
-	const Author         = 'miunosoft (Michael Uno)';
-	const AuthorURI      = 'http://en.michaeluno.jp/';
-	const Copyright      = 'Copyright (c) 2014, Michael Uno';
-	const License        = 'GPL v2 or later';
-	const Contributors   = '';
+	const AUTHOR         = 'miunosoft (Michael Uno)';
+	const AUTHOR_URI     = 'http://en.michaeluno.jp/';
+	const COPYRIGHT      = 'Copyright (c) 2014, Michael Uno';
+	const LICENSE        = 'GPL v2 or later';
+	const CONTRIBUTORS   = '';
 	
 }
 /**
@@ -36,22 +36,11 @@ class ServerInformation_Registry_Base {
 final class ServerInformation_Registry extends ServerInformation_Registry_Base {
 	        
 	// The plugin itself uses these values.
-	const OptionKey                 = 'server_information_options';
-	const TransientPrefix           = 'SInfo_';    // Up to 8 characters as transient name allows 45 characters or less ( 40 for site transients ) so that md5 (32 characters) can be added
-	const TextDomain                = 'server-information';
-	const TextDomainPath            = './language';
-    
-	// const AdminPage_ = '...';
-	// const AdminPage_Root            = 'ServerInformation_AdminPage';    // the root menu page slug
-	// const AdminPage_Settings        = 'si_settings';    // the root menu page slug
-	const AdminPage_Report          = 'si_report';    // the root menu page slug
-    
-    // const PostType_ = '';
-	// const PostType_ImageGroup       = 'cfi_image_group';        // up to 20 characters
-    
-	// const Taxonomy_ = '';
-	const RequiredPHPVersion        = '5.2.4';
-	const RequiredWordPressVersion  = '3.5';
+	const TEXT_DOMAIN                = 'server-information';
+	const ADMIN_PAGE_REPORT          = 'si_report';    // the root menu page slug
+
+	const REQUIRED_PHP_VERSION        = '5.2.4';
+	const REQUIRED_WORDPRESSS_VERSION = '3.5';
 	    
 	// These properties will be defined in the setUp() method.
 	static public $sFilePath = '';

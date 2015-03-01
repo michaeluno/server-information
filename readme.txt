@@ -3,12 +3,12 @@ Contributors:       Michael Uno, miunosoft
 Donate link:        http://en.michaeluno.jp/donate
 Tags:               system, system information, admin tool, tool, server, server information, email, report, bug report, report form, form, email form
 Requires at least:  3.3
-Tested up to:       4.1.0
+Tested up to:       4.1.1
 Stable tag:         1.1.1
 License:            GPLv2 or later
 License URI:        http://www.gnu.org/licenses/gpl-2.0.html
 
-Adds an email report form in the admin area to send server information.
+Allows you to send server information via email.
 
 == Description ==
 
@@ -41,6 +41,10 @@ Emails may not work on some servers with certain configurations. Please report a
 1. ***Report Page***
 
 == Changelog ==
+
+= 1.1.3 - 2015/03/02 =
+- Fixed an issue that PHP warnings occurred on some servers with access restriction on PHP error logs.
+- Updated the Admin Page Framework library.
 
 = 1.1.2 - 2015/01/16 =
 - Fixed an action name that is triggered when all the plugin components are loaded.

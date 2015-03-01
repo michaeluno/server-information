@@ -142,7 +142,7 @@ class ServerInformation_AdminPage_Report_Report {
                     '.mysql_info'               => 'MySQL',
                     '.mysql_error_log'          => __( 'MySQL Errors', 'server-information' ),
                     '.web_server_info'          => __( 'Web Server', 'server-information' ),
-                    '.server_info_plugin_info'  => __( 'Plugin', 'server-information' ) . ': '. ServerInformation_Registry::Name,
+                    '.server_info_plugin_info'  => __( 'Plugin', 'server-information' ) . ': '. ServerInformation_Registry::NAME,
                     '.framework_info'           => 'Admin Page Framework',
                 ),
                 'default'       => array(
@@ -336,7 +336,7 @@ class ServerInformation_AdminPage_Report_Report {
                     'PHP Error Log'         => '',
                     'MySQL'                 => '',
                     'MySQL Error Log'       => '',                    
-                    __( 'Plugin', 'server-information' ) . ': ' . ServerInformation_Registry::Name => ServerInformation_Registry::getInfo(),
+                    __( 'Plugin', 'server-information' ) . ': ' . ServerInformation_Registry::NAME => ServerInformation_Registry::getInfo(),
                     'Browser'               => '',
                 ),
                 'attributes'    => array( 

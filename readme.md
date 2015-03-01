@@ -4,8 +4,15 @@
 
 Server Information is an open source WordPress plugin that adds an email report form in the admin area to send server information.
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/michaeluno/admin-page-framework/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/michaeluno/server-information/?branch=master)
+
 ## Screenshots ##
-Coming soon..
+
+<p align="center">
+	<a href="https://ps.w.org/server-information/assets/screenshot-1.png" title="Server Information - Email Form">
+		<img src="https://ps.w.org/server-information/assets/screenshot-1.png" alt="Server Information - Email Form" width="400px" />
+	</a>
+</p>
 
 ## Download ##
 
@@ -48,7 +55,7 @@ If you like it, please rate and review it in the [WordPress Plugin Directory](ht
 
 ### Server Information ###
 Released under the [GPL v2](./LICENSE.txt) or later.
-Copyright © 2014 Michael Uno
+Copyright © 2014-2015 Michael Uno
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

@@ -31,7 +31,7 @@ class ServerInformation_AdminPage extends ServerInformation_AdminPageFramework {
        $this->addSubMenuItems( 
             array(
                 'title'         => __( 'Server Information', 'server-information' ),
-                'page_slug'     => ServerInformation_Registry::AdminPage_Report,    // page slug                
+                'page_slug'     => ServerInformation_Registry::ADMIN_PAGE_REPORT,    // page slug                
             ),       
             array()
             
@@ -43,7 +43,7 @@ class ServerInformation_AdminPage extends ServerInformation_AdminPageFramework {
         $this->setPluginSettingsLinkLabel( __( 'Report', 'server-information' ) ); // pass an empty string.
                  
         // Define the Report page.
-        new ServerInformation_AdminPage_Report( ServerInformation_Registry::AdminPage_Report );
+        new ServerInformation_AdminPage_Report( ServerInformation_Registry::ADMIN_PAGE_REPORT );
         
     }
     
