@@ -43,6 +43,7 @@ Emails may not work on some servers with certain configurations. Please report a
 == Changelog ==
 
 = 1.1.4 - 2015/08/10 =
+- Fixed the PHP Error check box did not toggle the PHP error text area input.
 - Changed it to mask sensitive information.
 - Updated the [Admin Page Framework](http://en.michaeluno.jp/admin-page-framework/) library.
 
