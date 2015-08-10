@@ -251,10 +251,10 @@ class ServerInformation_AdminPage_Report_Report {
                     'rows'      =>  10, 
                     'readonly'  => 'readonly',
                 ),
-                'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.php_info' )
+                'if'            => ! $_bIsConfirming || $oFactory->getValue( 'report', 'select_iofo', '.php_error_log' )
                     ? true
                     : false,
-                'class'         => array( 'fieldrow' => 'php_info', ),                
+                'class'         => array( 'fieldrow' => 'php_error_log', ),                
                 'hidden'        => true,
             ),             
             array(

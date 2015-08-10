@@ -5,7 +5,7 @@
 	Description:    Adds an email report form in the admin area to send server information.
 	Author:         Michael Uno
 	Author URI:     http://michaeluno.jp
-	Version:        1.1.3
+	Version:        1.1.4
 	Requirements:   PHP 5.2.4 or above, WordPress 3.3 or above. Admin Page Framework 3.0.6 or above
 */
 
@@ -18,7 +18,7 @@
  */
 class ServerInformation_Registry_Base {
 
-	const VERSION        = '1.1.3';    // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
+	const VERSION        = '1.1.4';    // <--- DON'T FORGET TO CHANGE THIS AS WELL!!
 	const NAME           = 'Server Information';
 	const DESCRIPTION    = 'Adds an email report form to send server information in the admin area.';
 	const URI            = 'http://en.michaeluno.jp/';
@@ -36,8 +36,8 @@ class ServerInformation_Registry_Base {
 final class ServerInformation_Registry extends ServerInformation_Registry_Base {
 	        
 	// The plugin itself uses these values.
-	const TEXT_DOMAIN                = 'server-information';
-	const ADMIN_PAGE_REPORT          = 'si_report';    // the root menu page slug
+	const TEXT_DOMAIN                 = 'server-information';
+	const ADMIN_PAGE_REPORT           = 'si_report';    // the root menu page slug
 
 	const REQUIRED_PHP_VERSION        = '5.2.4';
 	const REQUIRED_WORDPRESSS_VERSION = '3.5';
@@ -81,13 +81,17 @@ final class ServerInformation_Registry extends ServerInformation_Registry_Base {
 
 }
 /* Initial checks. */
-if ( ! defined( 'ABSPATH' ) ) { return; }
+if ( ! defined( 'ABSPATH' ) ) { 
+    return; 
+}
 
-if ( ! is_admin() ) { return; }
+if ( ! is_admin() ) { 
+    return; 
+}
 
-/* Registry set up. */
+// Registry set-ups
 ServerInformation_Registry::setUp( __FILE__ );
 
-/* Run the bootstrap. */
+// Bootstrap
 include( dirname( __FILE__ ) . '/include/class/boot/ServerInformation_Bootstrap.php' );
 new ServerInformation_Bootstrap( __FILE__ );

@@ -66,6 +66,7 @@ $aClassFiles = array(
 	"ServerInformation_AdminPageFramework_WPUtility_URL"	=>	ServerInformation_AdminPageFramework_Registry::$sDirPath . "/factory/AdminPageFramework_Factory/utility/AdminPageFramework_WPUtility/AdminPageFramework_WPUtility_URL.php", 
 	"ServerInformation_AdminPageFramework_FieldTypeRegistration"	=>	ServerInformation_AdminPageFramework_Registry::$sDirPath . "/factory/AdminPageFramework_Factory/view/AdminPageFramework_FieldTypeRegistration.php", 
 	"ServerInformation_AdminPageFramework_PageLoadInfo_Base"	=>	ServerInformation_AdminPageFramework_Registry::$sDirPath . "/factory/AdminPageFramework_Factory/view/AdminPageFramework_PageLoadInfo_Base.php", 
+	"ServerInformation_AdminPageFramework_TabNavigationBar"	=>	ServerInformation_AdminPageFramework_Registry::$sDirPath . "/factory/AdminPageFramework_Factory/view/AdminPageFramework_TabNavigationBar.php", 
 	"ServerInformation_AdminPageFramework_FieldType"	=>	ServerInformation_AdminPageFramework_Registry::$sDirPath . "/factory/AdminPageFramework_Factory/view/AdminPageFramework_FieldType/AdminPageFramework_FieldType.php", 
 	"ServerInformation_AdminPageFramework_FieldType_Base"	=>	ServerInformation_AdminPageFramework_Registry::$sDirPath . "/factory/AdminPageFramework_Factory/view/AdminPageFramework_FieldType/AdminPageFramework_FieldType_Base.php", 
 	"ServerInformation_AdminPageFramework_FieldType_checkbox"	=>	ServerInformation_AdminPageFramework_Registry::$sDirPath . "/factory/AdminPageFramework_Factory/view/AdminPageFramework_FieldType/AdminPageFramework_FieldType_checkbox.php", 
