@@ -3,7 +3,7 @@
  * The class that checks necessary requirements.
  *
  * @package      Server Information
- * @copyright    Copyright (c) 2014, <Michael Uno>
+ * @copyright    Copyright (c) 2014-2015, <Michael Uno>
  * @author       Michael Uno
  * @authorurl    http://michaeluno.jp
  * @since        0.0.1
