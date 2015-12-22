@@ -3,6 +3,9 @@
 /tool/beautifier/class/library/
 */PHP_Beautifier
 
+# Files containing sensitive information
+*/settings.cfg
+
 # backup files.
 *.old
 *.bak
@@ -44,3 +47,6 @@
 .Trashes
 ehthumbs.db
 Thumbs.db 
+
+# Git Files
+*.stackdump

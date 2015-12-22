@@ -2,7 +2,7 @@
 
 /* Configuration */
 $sTargetBaseDir		= dirname( dirname( dirname( __FILE__ ) ) );
-$sResultFilePath	= $sTargetBaseDir . '/include/server-information-include-class-file-list.php';
+$sResultFilePath	= $sTargetBaseDir . '/include/class-list.php';
 
 
 
