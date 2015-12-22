@@ -2,9 +2,9 @@
 Contributors:       Michael Uno, miunosoft
 Donate link:        http://en.michaeluno.jp/donate
 Tags:               system, system information, admin tool, tool, server, server information, email, report, bug report, report form, form, email form
-Requires at least:  3.3
-Tested up to:       4.2.4
-Stable tag:         1.1.3
+Requires at least:  3.4
+Tested up to:       4.4
+Stable tag:         1.1.4
 License:            GPLv2 or later
 License URI:        http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,11 @@ Emails may not work on some servers with certain configurations. Please report a
 1. ***Report Page***
 
 == Changelog ==
+
+= 1.2.0 =
+- Refined the UI.
+- Changed the required WordPress version to 3.4.
+- Updated the [Admin Page Framework](http://en.michaeluno.jp/admin-page-framework/) library.
 
 = 1.1.4 - 2015/08/10 =
 - Fixed the PHP Error check box did not toggle the PHP error text area input.

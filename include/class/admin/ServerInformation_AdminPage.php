@@ -32,9 +32,7 @@ class ServerInformation_AdminPage extends ServerInformation_AdminPageFramework {
             array(
                 'title'         => __( 'Server Information', 'server-information' ),
                 'page_slug'     => ServerInformation_Registry::ADMIN_PAGE_REPORT,    // page slug                
-            ),       
-            array()
-            
+            )
         );
          
         $this->setPageHeadingTabsVisibility( false ); // disables the page heading tabs by passing false.
@@ -43,7 +41,7 @@ class ServerInformation_AdminPage extends ServerInformation_AdminPageFramework {
         $this->setPluginSettingsLinkLabel( __( 'Report', 'server-information' ) ); // pass an empty string.
                  
         // Define the Report page.
-        new ServerInformation_AdminPage_Report( ServerInformation_Registry::ADMIN_PAGE_REPORT );
+        new ServerInformation_AdminPage_Report;
         
     }
     

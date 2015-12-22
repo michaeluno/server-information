@@ -16,9 +16,9 @@ class ServerInformation_AdminPage_Report {
      * Sets up hooks and properties.
      * @since       0.0.1
      */
-    public function __construct( $sPageSlug ) {
+    public function __construct() {
 
-        $this->sPageSlug = $sPageSlug;
+        $this->sPageSlug =  ServerInformation_Registry::ADMIN_PAGE_REPORT;
         
         add_action( "load_" . $this->sPageSlug, array( $this, '_replyToLoadPage' ) );
      
@@ -44,12 +44,8 @@ class ServerInformation_AdminPage_Report {
         new ServerInformation_RevealerCustomFieldType( $oAdminPage->oProp->sClassName );
         
         // Define the general tab.
-        new ServerInformation_AdminPage_Report_Report( 
-            $this->sPageSlug,
-            'report'
-        );
+        new ServerInformation_AdminPage_Report_Report;
+        
     }
 
-    
 }
-
