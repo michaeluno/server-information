@@ -44,6 +44,7 @@ Emails may not work on some servers with certain configurations. Please report a
 
 = 1.2.0 =
 - Refined the UI.
+- Fixed a compatibility isse with PHP 7.
 - Changed the required WordPress version to 3.4.
 - Updated the [Admin Page Framework](http://en.michaeluno.jp/admin-page-framework/) library.
 
