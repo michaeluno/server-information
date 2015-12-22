@@ -43,7 +43,7 @@ Emails may not work on some servers with certain configurations. Please report a
 
 == Changelog ==
 
-= 1.2.0 =
+= 1.2.0 - 2015/12/23 =
 - Refined the UI.
 - Fixed a compatibility isse with PHP 7.
 - Changed the required WordPress version to 3.4.
