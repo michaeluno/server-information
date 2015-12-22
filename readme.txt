@@ -12,6 +12,7 @@ Allows you to send server information via email.
 
 == Description ==
 
+<h4>Send Server Information via Email</h4>
 Troubleshooting with your plugin or theme developer? Send your server information to them with a few clicks.
 
 <h4>Features</h4>
@@ -27,7 +28,7 @@ Troubleshooting with your plugin or theme developer? Send your server informatio
 = How to Use = 
 1. Go to `Dashboard` -> `Tools` -> `Server Information`.
 2. Type necessary information such as your name and email addresses.
-3. Submit the report. 
+3. Submit your report. 
 
 == Other Notes ==
 
